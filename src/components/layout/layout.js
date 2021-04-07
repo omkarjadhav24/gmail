@@ -36,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
          fontFamily:'"Google Sans",Roboto,Arial,sans-serif',
          letterSpacing:'.0107142857em',
          textTransform:'none' 
+      },
+      boxPadding:{
+          padding:'48px 40px 36px'
       }
   }));
 
@@ -118,7 +121,7 @@ const Layout=()=> {
     <>
         <Container p={3} maxWidth="md">
         <Box  display="flex" justifyContent="center">
-        <Box p={3} borderRadius="borderRadius" {...defaultProps} >
+        <Box className={classes.boxPadding} borderRadius="borderRadius" {...defaultProps} >
         <div  className={classes.rootGird} >
         <Grid  container spacing={1}>
         <Grid item xs={12} sm={6}>
