@@ -1,4 +1,5 @@
 import React, { useEffect, useState ,useRef } from 'react';
+import './layout.css'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -190,9 +191,12 @@ export default function Layout() {
                     name="password"
                     type="password"
                     validators={['required']}
-                    errorMessages={['this field is required']}
+                    errorMessages={['Enter a Password']}
                     value={password}
                 />
+                <span>
+                caption text
+                </span>
             </Grid>
             <Grid item xs={12} sm={6}>
             <TextValidator
@@ -203,8 +207,8 @@ export default function Layout() {
                     onChange={(event)=>setRepeatPassword(event.target.value)}
                     name="repeatPassword"
                     type="password"
-                    validators={['isPasswordMatch', 'required']}
-                    errorMessages={['password mismatch', 'this field is required']}
+                    validators={['isPasswordMatch']}
+                    errorMessages={['password mismatch']}
                     value={repeatPassword}
                 />
             </Grid>
