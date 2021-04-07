@@ -185,13 +185,14 @@ export default function Layout() {
             <TextValidator
                     label="Password"
                     fullWidth
+                    hintText="Password"
                     variant="outlined"
                     size="small"
                     onChange={(event)=>setPassword(event.target.value)}
                     name="password"
                     type="password"
-                    validators={['required']}
-                    errorMessages={['Enter a Password']}
+                    validators={['required','matchRegexp:^[a-zA-Z\d!@#$%&*]{8,}$']}
+                    errorMessages={['Enter a Password','Use 8 characters or more for your password']}
                     value={password}
                 />
                 <span>
