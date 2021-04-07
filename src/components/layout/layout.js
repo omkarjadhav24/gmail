@@ -277,7 +277,7 @@ const Layout=()=> {
         
         <Box display="flex" justifyContent="center" m={1} p={1} >
         <Box p={1} >
-        <figure class="OFqWT"><img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="244" height="244" class="j9NuTc TrZEUc"/>
+        <figure ><img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="244" height="244"/>
             <figcaption className="figCaption">One account. All of Google working for you.</figcaption>
         </figure>
         </Box>
