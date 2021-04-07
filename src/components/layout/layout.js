@@ -94,7 +94,7 @@ export default function Layout() {
             </Grid>
             <Grid container spacing={1}>
                 <Grid item xs={12} sm={12}>
-                    <Typography className={classes.textWidth} fontWeight="fontWeightMedium" >
+                    <Typography variant="h5" gutterBottom >
                     Create your Google Account
                     </Typography>
                 </Grid>
