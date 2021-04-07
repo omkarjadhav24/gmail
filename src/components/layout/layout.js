@@ -97,7 +97,7 @@ export default function Layout() {
     }
   return (
     <>
-        <Container p={3} fixed>
+        <Container p={3} maxWidth="md">
         <Box  display="flex" justifyContent="center">
         <Box p={3} borderRadius="borderRadius" {...defaultProps} >
         <div  className={classes.rootGird} >
@@ -166,8 +166,8 @@ export default function Layout() {
                         endAdornment:
                         <span  position="end">@gmail.com</span>
                         }}
-                    validators={['required', 'isEmail']}
-                    errorMessages={['Choose a Gmail address', 'email is not valid']}
+                    validators={['required', 'isEmail','matchRegexp:^[a-zA-z0-9@]{6,30}$']}
+                    errorMessages={['Choose a Gmail address', 'email is not valid','Sorry, your username must be between 6 and 30 characters long.']}
                 /> : 
                 <TextValidator
                     label="Your Email Address"
@@ -178,8 +178,8 @@ export default function Layout() {
                     value={userName}
                     onChange={(event)=>setUserName(event.target.value)}
                     name="email"
-                    validators={['required', 'isEmail']}
-                    errorMessages={['Choose a Gmail address', 'email is not valid']}
+                    validators={['required', 'isEmail','matchRegexp:^[a-zA-z0-9@]{6,30}$']}
+                    errorMessages={['Choose a Gmail address', 'email is not valid','Sorry, your username must be between 6 and 30 characters long.']}
             />
                 }
                     {/* <FormControl  >
@@ -195,7 +195,7 @@ export default function Layout() {
                 </Grid>
             </Grid>
             <Grid container spacing={1}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12} sm={12}>
             {showCurrentEmail ?
             <Button onClick={()=>userNameHandlerToggle()} className={classes.userNameButton} color="primary">Use my current email address instead</Button>
            :
