@@ -162,11 +162,11 @@ export default function Layout() {
                     value={userName}
                     onChange={(event)=>setUserName(event.target.value)}
                     name="email"
-                    InputProps={{
-                        endAdornment:
-                        <span  position="end">@gmail.com</span>
-                        }}
-                    validators={['required', 'isEmail','matchRegexp:^[a-zA-z0-9@]{6,30}$']}
+                    // InputProps={{
+                    //     endAdornment:
+                    //     <span  position="end">@gmail.com</span>
+                    //     }}
+                    validators={['required', 'isEmail','matchRegexp:^[a-zA-z0-9@.]{6,}$']}
                     errorMessages={['Choose a Gmail address', 'email is not valid','Sorry, your username must be between 6 and 30 characters long.']}
                 /> : 
                 <TextValidator
@@ -178,7 +178,7 @@ export default function Layout() {
                     value={userName}
                     onChange={(event)=>setUserName(event.target.value)}
                     name="email"
-                    validators={['required', 'isEmail','matchRegexp:^[a-zA-z0-9@]{6,30}$']}
+                    validators={['required', 'isEmail','matchRegexp:^[a-zA-z0-9@.]{6,}$']}
                     errorMessages={['Choose a Gmail address', 'email is not valid','Sorry, your username must be between 6 and 30 characters long.']}
             />
                 }
