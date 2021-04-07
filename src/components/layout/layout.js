@@ -209,7 +209,7 @@ export default function Layout() {
                     name="repeatPassword"
                     type="password"
                     validators={['isPasswordMatch']}
-                    errorMessages={['password mismatch']}
+                    errorMessages={['Password Mismatch']}
                     value={repeatPassword}
                 />
             </Grid>
