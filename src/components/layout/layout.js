@@ -20,7 +20,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
-// styles makestyles used as a wrapper, to assign the classes prop to our component.
+// styles. makestyles used as a wrapper, to assign the classes prop to our component.
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > *': {
@@ -55,6 +55,7 @@ export default function Layout() {
     const[repeatPassword,setRepeatPassword]=useState(null);
     const[showCurrentEmail,setShowCurrentEmail]=useState(true);
     const[hidden,setHidden]=useState(true)
+    const[passwordClass,setPasswordClass]=useState('Mui-error')
     // for consume the styles
     const classes = useStyles();
     // for border 
@@ -90,12 +91,18 @@ export default function Layout() {
     const userNameHandlerToggle=()=>{
         let prevCurrentEmail=showCurrentEmail;
         setShowCurrentEmail(!prevCurrentEmail);
-      usernameInput=input => input && input.focus()
+    //   usernameInput=input => input && input.focus()
     }
     // for showing hidden password  onclick show password checkbox 
     const handleClickShowPassword=()=>{
         let prevHidden=hidden;
         setHidden(!prevHidden);
+    }
+    // for password  two bindind data
+    const passwordHandler=(event)=>{
+        setPassword(event.target.value)
+        // if password error occurs the hide the grid
+        setPasswordClass(event.target.classList.contains(passwordClass))
     }
   return (
     <>
@@ -213,7 +220,7 @@ export default function Layout() {
                     hintText="Password"
                     variant="outlined"
                     size="small"
-                    onChange={(event)=>setPassword(event.target.value)}
+                    onChange={(event)=>passwordHandler(event)}
                     name="password"
                     type={ hidden ? 'password' : 'text'}
                     validators={['required','matchRegexp:^[a-zA-Z\d!@#$%&*]{8,}$']}
@@ -237,6 +244,7 @@ export default function Layout() {
                 />
             </Grid>
             </Grid>
+            {passwordClass ?  
             <Grid container spacing={1}>
             <Grid item xs={12} sm={12}>
                 <span>
@@ -244,6 +252,8 @@ export default function Layout() {
                 </span>
             </Grid>
             </Grid>
+            :null
+            }
             <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
                  <FormControlLabel
