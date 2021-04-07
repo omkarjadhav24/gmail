@@ -262,7 +262,14 @@ export default function Layout() {
             </ValidatorForm>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Paper className={classes.paper}>xs=12 sm=6</Paper>
+        
+        <Box display="flex" justifyContent="center" m={1} p={1} >
+        <Box p={1} >
+        <figure class="OFqWT"><img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="244" height="244" class="j9NuTc TrZEUc"/>
+            <figcaption class="oEvHdd">One account. All of Google working for you.</figcaption>
+        </figure>
+        </Box>
+      </Box>
         </Grid>
       </Grid>
     </div>           
