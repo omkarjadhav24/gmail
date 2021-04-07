@@ -51,6 +51,7 @@ const Layout=()=> {
     const[showCurrentEmail,setShowCurrentEmail]=useState(true);
     const[hidden,setHidden]=useState(true)
     const[passwordClass,setPasswordClass]=useState('Mui-error')
+    const[emailClass,setEmailClass]=useState('Mui-error')
     // for consume the styles
     const classes = useStyles();
     // for container border 
@@ -98,6 +99,12 @@ const Layout=()=> {
         setPassword(event.target.value)
         // if password error occurs then hide the grid
         setPasswordClass(event.target.classList.contains(passwordClass))
+    }
+    const handlerEmail=(event)=>{
+        // two data binding
+        setUserName(event.target.value)
+        // hiding grid when username occurs error
+        setEmailClass(event.target.classList.contains(emailClass))
     }
   return (
     <>
@@ -164,7 +171,7 @@ const Layout=()=> {
                     fullWidth
                     inputRef={usernameInput}
                     value={userName}
-                    onChange={(event)=>setUserName(event.target.value)}
+                    onChange={(event)=>handlerEmail(event)}
                     name="email"
                     // InputProps={{
                     //     endAdornment:
@@ -180,7 +187,7 @@ const Layout=()=> {
                     size="small"
                     fullWidth
                     value={userName}
-                    onChange={(event)=>setUserName(event.target.value)}
+                    onChange={(event)=>handlerEmail(event)}
                     name="email"
                     validators={['required', 'isEmail','matchRegexp:^[a-zA-z0-9@.]{6,}$']}
                     errorMessages={['Choose a Gmail address', 'email is not valid','Sorry, your username must be between 6 and 30 characters long.']}
@@ -198,6 +205,16 @@ const Layout=()=> {
                     </FormControl> */}
                 </Grid>
             </Grid>
+            {emailClass ?  
+            <Grid container spacing={1}>
+            <Grid item xs={12} sm={12}>
+                <span>
+                You'll need to confirm that this email belongs to you.
+                </span>
+            </Grid>
+            </Grid>
+            :null
+            }
             <Grid container spacing={1}>
             <Grid item xs={12} sm={12}>
             {showCurrentEmail ?
