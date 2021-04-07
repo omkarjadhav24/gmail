@@ -87,7 +87,7 @@ export default function Layout() {
     // for handling button 
     // if user Create a new Gmail address instead
     // else Use my current email address instead
-    // for this button handling
+    // for toogling button
     const userNameHandlerToggle=()=>{
         let prevCurrentEmail=showCurrentEmail;
         setShowCurrentEmail(!prevCurrentEmail);
