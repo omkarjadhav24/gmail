@@ -42,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
 const Layout=()=> {
     // useref for first name field focus whenever page render
     let firstNameInput = useRef(null);
+    // for username fieled focus
+    let emailInput = useRef(null);
+
     // states
     const[firstName,setFirstName]=useState(null);
     const[lastName,setLastName]=useState(null);
@@ -88,6 +91,8 @@ const Layout=()=> {
         let prevCurrentEmail=showCurrentEmail;
         setShowCurrentEmail(!prevCurrentEmail);
     //   usernameInput=input => input && input.focus()
+        // for focusing username field
+        // emailInput.current.focus()
     }
     // for showing hidden password  onclick show password checkbox 
     const handleClickShowPassword=()=>{
@@ -169,7 +174,7 @@ const Layout=()=> {
                     variant="outlined"
                     size="small"
                     fullWidth
-                    inputRef={usernameInput}
+                    inputRef={emailInput}
                     value={userName}
                     onChange={(event)=>handlerEmail(event)}
                     name="email"
