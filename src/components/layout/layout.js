@@ -67,7 +67,7 @@ export default function Layout() {
     }
   return (
     <>
-        <Container fixed>
+        <Container p={3} fixed>
         <Box  display="flex" justifyContent="center">
         <Box p={3} borderRadius="borderRadius" {...defaultProps} >
         <div  className={classes.rootGird} >
@@ -96,6 +96,7 @@ export default function Layout() {
                     label="First Name"
                     variant="outlined"
                     size="small"
+                    fullWidth
                     color="primary"
                     value={firstName}
                     onChange={(event)=>setFirstName(event.target.value)}
@@ -107,6 +108,7 @@ export default function Layout() {
                 <Grid item xs={12} sm={6}>
                 <TextValidator
                     label="Last Name"
+                    fullWidth
                     variant="outlined"
                     size="small"
                     onChange={(event)=>setLastName(event.target.value)}
@@ -118,29 +120,39 @@ export default function Layout() {
             </Grid>
             <Grid container spacing={1}>
                 <Grid item xs={12} sm={12}>
-                <TextValidator
+                {/* <TextValidator
                     label="username"
                     variant="outlined"
                     size="small"
+                    fullWidth
                     value={userName}
+                    defaultValue="@gmail.com"
                     onChange={(event)=>setUserName(event.target.value)}
                     name="email"
                     validators={['required', 'isEmail']}
                     errorMessages={['Choose a Gmail address', 'email is not valid']}
-                />
-                 {/* <FormControl >
-                <FilledInput
-                    label="username"
-                    value={userName}
-                    variant="outlined"
-                    // onChange={handleChange('weight')}
-                    endAdornment={<InputAdornment position="end">Kg</InputAdornment>}
-                    inputProps={{
-                    'aria-label': 'weight',
-                    }}
-                />
-                <FormHelperText id="filled-weight-helper-text">Weight</FormHelperText>
-                </FormControl> */}
+                /> */}
+                 {/* <FormControl className={clsx(classes.margin, classes.textField)} variant="filled">
+          <InputLabel htmlFor="filled-adornment-password">Password</InputLabel>
+          <FilledInput
+            id="filled-adornment-password"
+            type={values.showPassword ? 'text' : 'password'}
+            value={values.password}
+            onChange={handleChange('password')}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+        </FormControl> */}
                 </Grid>
             </Grid>
             <Grid container spacing={1}>
@@ -152,6 +164,7 @@ export default function Layout() {
             <Grid item xs={12} sm={6}>
             <TextValidator
                     label="Password"
+                    fullWidth
                     variant="outlined"
                     size="small"
                     onChange={(event)=>setPassword(event.target.value)}
@@ -165,6 +178,7 @@ export default function Layout() {
             <Grid item xs={12} sm={6}>
             <TextValidator
                     label="confirm"
+                    fullWidth
                     variant="outlined"
                     size="small"
                     onChange={(event)=>setRepeatPassword(event.target.value)}
