@@ -1,20 +1,15 @@
 import React, { useEffect, useState ,useRef } from 'react';
 import './layout.css'
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import Box from '@material-ui/core/Box';
-import CardMedia from '@material-ui/core/CardMedia';
 import image from '../../assets/google.png'
 import Typography from '@material-ui/core/Typography';
 import FormControl from '@material-ui/core/FormControl';
 import FilledInput from '@material-ui/core/FilledInput';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -44,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
       }
   }));
 
-export default function Layout() {
+const Layout=()=> {
     // useref for first name field focus whenever page render
     let firstNameInput = useRef(null);
     // states
@@ -310,3 +305,4 @@ export default function Layout() {
     </>
   );
 }
+export default Layout;
