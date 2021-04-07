@@ -55,6 +55,7 @@ const Layout=()=> {
     const[hidden,setHidden]=useState(true)
     const[passwordClass,setPasswordClass]=useState('Mui-error')
     const[emailClass,setEmailClass]=useState('Mui-error')
+    const[hideGrid,setHideGrid]=useState(false)
     // for consume the styles
     const classes = useStyles();
     // for container border 
@@ -80,7 +81,9 @@ const Layout=()=> {
         firstNameInput.current.focus();
     },[])
     // onclick submit
-    const handleSubmit=()=>{
+    const handleSubmit=(event)=>{
+        // for username below grid hiding
+        setHideGrid(true)
     }
     let  usernameInput=null;
     // for handling button 
@@ -120,7 +123,7 @@ const Layout=()=> {
         <Grid  container spacing={1}>
         <Grid item xs={12} sm={6}>
             <ValidatorForm
-                onSubmit={()=>handleSubmit()}
+                onSubmit={(event)=>handleSubmit(event)}
                 onError={errors => console.log(errors)}
                 className={classes.root}
             >
@@ -170,7 +173,7 @@ const Layout=()=> {
                 <Grid item xs={12} sm={12}>
                     {showCurrentEmail ?
                 <TextValidator
-                    label="username"
+                    label="Username"
                     variant="outlined"
                     size="small"
                     fullWidth
@@ -178,10 +181,10 @@ const Layout=()=> {
                     value={userName}
                     onChange={(event)=>handlerEmail(event)}
                     name="email"
-                    // InputProps={{
-                    //     endAdornment:
-                    //     <span  position="end">@gmail.com</span>
-                    //     }}
+                    InputProps={{
+                        endAdornment:
+                        <span  position="end">@gmail.com</span>
+                        }}
                     validators={['required', 'isEmail','matchRegexp:^[a-zA-z0-9@.]{6,}$']}
                     errorMessages={['Choose a Gmail address', 'email is not valid','Sorry, your username must be between 6 and 30 characters long.']}
                 /> : 
@@ -197,7 +200,11 @@ const Layout=()=> {
                     validators={['required', 'isEmail','matchRegexp:^[a-zA-z0-9@.]{6,}$']}
                     errorMessages={['Choose a Gmail address', 'email is not valid','Sorry, your username must be between 6 and 30 characters long.']}
             />
-                }
+                } 
+                {emailClass ?
+                <span>
+                You'll need to confirm that this email belongs to you.
+                </span> :null}
                     {/* <FormControl  >
                     <FilledInput
                     id="filled-adornment-password"
@@ -210,16 +217,6 @@ const Layout=()=> {
                     </FormControl> */}
                 </Grid>
             </Grid>
-            {emailClass ?  
-            <Grid container spacing={1}>
-            <Grid item xs={12} sm={12}>
-                <span>
-                You'll need to confirm that this email belongs to you.
-                </span>
-            </Grid>
-            </Grid>
-            :null
-            }
             <Grid container spacing={1}>
             <Grid item xs={12} sm={12}>
             {showCurrentEmail ?
