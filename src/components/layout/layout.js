@@ -43,6 +43,8 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function Layout() {
+    // useref for first name field focus whenever page render
+    let firstNameInput = useRef(null);
     // states
     const[firstName,setFirstName]=useState(null);
     const[lastName,setLastName]=useState(null);
@@ -64,10 +66,13 @@ export default function Layout() {
       // for confirm password it matches password if not then show error
       //add your own rules  addValidationRule()
      useEffect(()=>{
+         // for first name field focus
+        firstNameInput.current.focus();
          // custom rule will have name 'isPasswordMatch'
          ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
             if (value !== password) return false
             return true;
+        
         });
     })
     // onclick submit
@@ -120,6 +125,7 @@ export default function Layout() {
                     label="First Name"
                     variant="outlined"
                     size="small"
+                    inputRef={firstNameInput}
                     fullWidth
                     color="primary"
                     value={firstName}
