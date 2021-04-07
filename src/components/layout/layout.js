@@ -50,6 +50,7 @@ export default function Layout() {
     const[password,setPassword]=useState(null);
     const[repeatPassword,setRepeatPassword]=useState(null);
     const[showCurrentEmail,setShowCurrentEmail]=useState(true);
+    const[hidden,setHidden]=useState(true)
     const classes = useStyles();
     // for border 
     const defaultProps = {
@@ -69,7 +70,7 @@ export default function Layout() {
         });
     })
     const handleSubmit=()=>{
-
+      
     }
     let  usernameInput=null;
     const userNameHandlerToggle=()=>{
@@ -78,7 +79,8 @@ export default function Layout() {
       usernameInput=input => input && input.focus()
     }
     const handleClickShowPassword=()=>{
-
+        let prevHidden=hidden;
+        setHidden(!prevHidden);
     }
   return (
     <>
@@ -196,7 +198,7 @@ export default function Layout() {
                     size="small"
                     onChange={(event)=>setPassword(event.target.value)}
                     name="password"
-                    type="password"
+                    type={ hidden ? 'password' : 'text'}
                     validators={['required','matchRegexp:^[a-zA-Z\d!@#$%&*]{8,}$']}
                     errorMessages={['Enter a Password','Use 8 characters or more for your password']}
                     value={password}
@@ -241,7 +243,14 @@ export default function Layout() {
                 />
             </Grid>
             </Grid>
+            <Grid container spacing={1}>
+            <Grid item xs={12} sm={6}>
+                <Button  className={classes.userNameButton} color="primary">Sign in instead</Button>
+            </Grid>
+            <Grid item xs={12} sm={6}>
             <Button variant="contained" color="primary" type="submit">Next</Button>
+            </Grid>
+            </Grid>
             </ValidatorForm>
         </Grid>
         <Grid item xs={12} sm={6}>
