@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState ,useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -14,7 +14,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FilledInput from '@material-ui/core/FilledInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
-
+// styles
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > *': {
@@ -39,13 +39,17 @@ const useStyles = makeStyles((theme) => ({
   }));
 
 export default function Layout() {
+    // states
     const[firstName,setFirstName]=useState(null);
     const[lastName,setLastName]=useState(null);
     const[userName,setUserName]=useState(null);
     const[password,setPassword]=useState(null);
-    const [repeatPassword,setRepeatPassword]=useState(null);
+    const[repeatPassword,setRepeatPassword]=useState(null);
+    const[showCurrentEmail,setShowCurrentEmail]=useState(true);
     const classes = useStyles();
-
+    // const usernameInput = useRef(null);
+    const usernameInput = React.useRef(null) 
+    // for border 
     const defaultProps = {
         bgcolor: 'background.paper',
         borderColor: '#e0e0e0',
@@ -64,6 +68,11 @@ export default function Layout() {
     })
     const handleSubmit=()=>{
 
+    }
+    const userNameHandlerToggle=()=>{
+        let prevCurrentEmail=showCurrentEmail;
+        setShowCurrentEmail(!prevCurrentEmail);
+        usernameInput.current.focus();
     }
   return (
     <>
@@ -120,6 +129,7 @@ export default function Layout() {
             </Grid>
             <Grid container spacing={1}>
                 <Grid item xs={12} sm={12}>
+                    {showCurrentEmail ?
                 <TextValidator
                     label="username"
                     variant="outlined"
@@ -134,7 +144,20 @@ export default function Layout() {
                         }}
                     validators={['required', 'isEmail']}
                     errorMessages={['Choose a Gmail address', 'email is not valid']}
-                />
+                /> : 
+                <TextValidator
+                    label="Your Email Address"
+                    variant="outlined"
+                    ref={usernameInput}
+                    size="small"
+                    fullWidth
+                    value={userName}
+                    onChange={(event)=>setUserName(event.target.value)}
+                    name="email"
+                    validators={['required', 'isEmail']}
+                    errorMessages={['Choose a Gmail address', 'email is not valid']}
+            />
+                }
                     {/* <FormControl  >
                     <FilledInput
                     id="filled-adornment-password"
@@ -149,7 +172,7 @@ export default function Layout() {
             </Grid>
             <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
-            <Button className={classes.userNameButton} color="primary">Use my current email address instead</Button>
+            <Button onClick={()=>userNameHandlerToggle()} className={classes.userNameButton} color="primary">Use my current email address instead</Button>
             </Grid>
             </Grid>
             <Grid container spacing={1}>
