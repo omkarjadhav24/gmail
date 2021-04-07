@@ -17,6 +17,8 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 
 // styles makestyles used as a wrapper, to assign the classes prop to our component.
 const useStyles = makeStyles((theme) => ({
@@ -271,7 +273,7 @@ export default function Layout() {
         <Box display="flex" justifyContent="center" m={1} p={1} >
         <Box p={1} >
         <figure class="OFqWT"><img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="244" height="244" class="j9NuTc TrZEUc"/>
-            <figcaption class="oEvHdd">One account. All of Google working for you.</figcaption>
+            <figcaption className="figCaption">One account. All of Google working for you.</figcaption>
         </figure>
         </Box>
       </Box>
@@ -280,6 +282,20 @@ export default function Layout() {
     </div>           
         </Box>
         </Box>
+        <Grid container spacing={1}>
+            <Grid item xs={12} sm={6}>
+                <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                // value={age}
+                // onChange={handleChange}
+                >
+                <MenuItem value={10}>Ten</MenuItem>
+                <MenuItem value={20}>Twenty</MenuItem>
+                <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+            </Grid>
+        </Grid>
         </Container>
     </>
   );

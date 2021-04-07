@@ -10,3 +10,8 @@ span{
     line-height: normal;
     font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif;
 }
+.figCaption{
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+}
