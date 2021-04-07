@@ -67,7 +67,7 @@ export default function Layout() {
     }
   return (
     <>
-        
+        <Container fixed>
         <Box  display="flex" justifyContent="center">
         <Box p={3} borderRadius="borderRadius" {...defaultProps} >
         <div  className={classes.rootGird} >
@@ -186,6 +186,7 @@ export default function Layout() {
     </div>           
         </Box>
         </Box>
+        </Container>
     </>
   );
 }
