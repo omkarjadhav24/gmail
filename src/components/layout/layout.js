@@ -101,7 +101,7 @@ export default function Layout() {
     // for password  two bindind data
     const passwordHandler=(event)=>{
         setPassword(event.target.value)
-        // if password error occurs the hide the grid
+        // if password error occurs then hide the grid
         setPasswordClass(event.target.classList.contains(passwordClass))
     }
   return (
