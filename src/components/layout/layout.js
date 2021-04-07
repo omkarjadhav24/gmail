@@ -47,8 +47,6 @@ export default function Layout() {
     const[repeatPassword,setRepeatPassword]=useState(null);
     const[showCurrentEmail,setShowCurrentEmail]=useState(true);
     const classes = useStyles();
-    // const usernameInput = useRef(null);
-    const usernameInput = React.useRef(null) 
     // for border 
     const defaultProps = {
         bgcolor: 'background.paper',
@@ -69,10 +67,11 @@ export default function Layout() {
     const handleSubmit=()=>{
 
     }
+    let  usernameInput=null;
     const userNameHandlerToggle=()=>{
         let prevCurrentEmail=showCurrentEmail;
         setShowCurrentEmail(!prevCurrentEmail);
-        usernameInput.current.focus();
+      usernameInput=input => input && input.focus()
     }
   return (
     <>
@@ -135,6 +134,7 @@ export default function Layout() {
                     variant="outlined"
                     size="small"
                     fullWidth
+                    inputRef={usernameInput}
                     value={userName}
                     onChange={(event)=>setUserName(event.target.value)}
                     name="email"
@@ -148,7 +148,7 @@ export default function Layout() {
                 <TextValidator
                     label="Your Email Address"
                     variant="outlined"
-                    ref={usernameInput}
+                    inputRef={input => input && input.focus()}
                     size="small"
                     fullWidth
                     value={userName}
