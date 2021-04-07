@@ -66,8 +66,6 @@ export default function Layout() {
       // for confirm password it matches password if not then show error
       //add your own rules  addValidationRule()
      useEffect(()=>{
-         // for first name field focus
-        firstNameInput.current.focus();
          // custom rule will have name 'isPasswordMatch'
          ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
             if (value !== password) return false
@@ -75,9 +73,12 @@ export default function Layout() {
         
         });
     })
+    // for first name field focus only when first render page not again and agian 
+    useEffect(()=>{
+        firstNameInput.current.focus();
+    },[])
     // onclick submit
     const handleSubmit=()=>{
-      
     }
     let  usernameInput=null;
     // for handling button 
@@ -163,7 +164,7 @@ export default function Layout() {
                     name="email"
                     InputProps={{
                         endAdornment:
-                        <InputAdornment  position="end">@gmail.com</InputAdornment>
+                        <span  position="end">@gmail.com</span>
                         }}
                     validators={['required', 'isEmail']}
                     errorMessages={['Choose a Gmail address', 'email is not valid']}
