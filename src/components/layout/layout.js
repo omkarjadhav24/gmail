@@ -18,7 +18,7 @@ import FormHelperText from '@material-ui/core/FormHelperText';
 import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 
-// styles
+// styles makestyles used as a wrapper, to assign the classes prop to our component.
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > *': {
@@ -51,6 +51,7 @@ export default function Layout() {
     const[repeatPassword,setRepeatPassword]=useState(null);
     const[showCurrentEmail,setShowCurrentEmail]=useState(true);
     const[hidden,setHidden]=useState(true)
+    // for consume the styles
     const classes = useStyles();
     // for border 
     const defaultProps = {
@@ -60,6 +61,8 @@ export default function Layout() {
         border: 1,
         style: { width: '100%', height: '600px' },
       };
+      // for confirm password it matches password if not then show error
+      //add your own rules  addValidationRule()
      useEffect(()=>{
          // custom rule will have name 'isPasswordMatch'
          ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
@@ -67,15 +70,21 @@ export default function Layout() {
             return true;
         });
     })
+    // onclick submit
     const handleSubmit=()=>{
       
     }
     let  usernameInput=null;
+    // for handling button 
+    // if user Create a new Gmail address instead
+    // else Use my current email address instead
+    // for this button handling
     const userNameHandlerToggle=()=>{
         let prevCurrentEmail=showCurrentEmail;
         setShowCurrentEmail(!prevCurrentEmail);
       usernameInput=input => input && input.focus()
     }
+    // for showing hidden password  onclick show password checkbox 
     const handleClickShowPassword=()=>{
         let prevHidden=hidden;
         setHidden(!prevHidden);
@@ -126,6 +135,7 @@ export default function Layout() {
                     fullWidth
                     variant="outlined"
                     size="small"
+                    value={lastName}
                     onChange={(event)=>setLastName(event.target.value)}
                     name="lastname"
                     validators={['required']}
