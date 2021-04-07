@@ -246,8 +246,6 @@ export default function Layout() {
                  <FormControlLabel
                 control={
                     <Checkbox
-                    // checked={state.checkedB}
-                    // onChange={handleChange}
                     name="checkedB"
                     color="primary"
                     onClick={()=>handleClickShowPassword()}
