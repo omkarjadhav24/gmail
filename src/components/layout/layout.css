@@ -15,6 +15,13 @@ span{
     font-weight: 300;
     text-align: center;
 }
-/* .MuiBox-root-10{
+.MuiBox-root-10{
     margin: 40px;
-} */
+}
+.MuiBox-root-8{
+    display: flex;
+    justify-content: center;
+    margin-left: 55.500px;
+    margin-right: 60.500px;
+}
+
