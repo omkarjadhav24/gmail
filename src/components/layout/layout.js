@@ -63,9 +63,7 @@ export default function Layout() {
      useEffect(()=>{
          // custom rule will have name 'isPasswordMatch'
          ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
-            if (value !== password) {
-                return false;
-            }
+            if (value !== password) return false
             return true;
         });
     })
