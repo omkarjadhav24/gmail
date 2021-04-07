@@ -172,7 +172,11 @@ export default function Layout() {
             </Grid>
             <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
+            {showCurrentEmail ?
             <Button onClick={()=>userNameHandlerToggle()} className={classes.userNameButton} color="primary">Use my current email address instead</Button>
+           :
+            <Button onClick={()=>userNameHandlerToggle()} className={classes.userNameButton} color="primary">Create a new Gmail address instead</Button>
+            }
             </Grid>
             </Grid>
             <Grid container spacing={1}>
