@@ -98,7 +98,7 @@ export default function Layout() {
         let prevHidden=hidden;
         setHidden(!prevHidden);
     }
-    // for password  two bindind data
+    // for password  two way  data binding
     const passwordHandler=(event)=>{
         setPassword(event.target.value)
         // if password error occurs then hide the grid
