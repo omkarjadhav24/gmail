@@ -15,6 +15,9 @@ import FormControl from '@material-ui/core/FormControl';
 import FilledInput from '@material-ui/core/FilledInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import FormHelperText from '@material-ui/core/FormHelperText';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+
 // styles
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -73,6 +76,9 @@ export default function Layout() {
         let prevCurrentEmail=showCurrentEmail;
         setShowCurrentEmail(!prevCurrentEmail);
       usernameInput=input => input && input.focus()
+    }
+    const handleClickShowPassword=()=>{
+        
     }
   return (
     <>
@@ -190,14 +196,12 @@ export default function Layout() {
                     size="small"
                     onChange={(event)=>setPassword(event.target.value)}
                     name="password"
-                    type="password"
+                    type="text"
                     validators={['required','matchRegexp:^[a-zA-Z\d!@#$%&*]{8,}$']}
                     errorMessages={['Enter a Password','Use 8 characters or more for your password']}
                     value={password}
                 />
-                <span>
-                caption text
-                </span>
+                
             </Grid>
             <Grid item xs={12} sm={6}>
             <TextValidator
@@ -211,6 +215,29 @@ export default function Layout() {
                     validators={['isPasswordMatch']}
                     errorMessages={['Password Mismatch']}
                     value={repeatPassword}
+                />
+            </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+            <Grid item xs={12} sm={12}>
+                <span>
+                    Use 8 or more characters with a mix of letters, numbers & symbols
+                </span>
+            </Grid>
+            </Grid>
+            <Grid container spacing={1}>
+            <Grid item xs={12} sm={6}>
+                 <FormControlLabel
+                control={
+                    <Checkbox
+                    // checked={state.checkedB}
+                    // onChange={handleChange}
+                    name="checkedB"
+                    color="primary"
+                    onClick={()=>handleClickShowPassword()}
+                    />
+                }
+                label="Show password"
                 />
             </Grid>
             </Grid>
