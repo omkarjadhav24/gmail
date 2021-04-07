@@ -78,7 +78,7 @@ export default function Layout() {
       usernameInput=input => input && input.focus()
     }
     const handleClickShowPassword=()=>{
-        
+
     }
   return (
     <>
@@ -196,7 +196,7 @@ export default function Layout() {
                     size="small"
                     onChange={(event)=>setPassword(event.target.value)}
                     name="password"
-                    type="text"
+                    type="password"
                     validators={['required','matchRegexp:^[a-zA-Z\d!@#$%&*]{8,}$']}
                     errorMessages={['Enter a Password','Use 8 characters or more for your password']}
                     value={password}
