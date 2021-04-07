@@ -237,7 +237,7 @@ export default function Layout() {
                     size="small"
                     onChange={(event)=>setRepeatPassword(event.target.value)}
                     name="repeatPassword"
-                    type="password"
+                    type={ hidden ? 'password' : 'text'}
                     validators={['isPasswordMatch']}
                     errorMessages={['Password Mismatch']}
                     value={repeatPassword}
