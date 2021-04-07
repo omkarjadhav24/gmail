@@ -120,39 +120,31 @@ export default function Layout() {
             </Grid>
             <Grid container spacing={1}>
                 <Grid item xs={12} sm={12}>
-                {/* <TextValidator
+                <TextValidator
                     label="username"
                     variant="outlined"
                     size="small"
                     fullWidth
                     value={userName}
-                    defaultValue="@gmail.com"
                     onChange={(event)=>setUserName(event.target.value)}
                     name="email"
+                    InputProps={{
+                        endAdornment:
+                        <InputAdornment  position="end">@gmail.com</InputAdornment>
+                        }}
                     validators={['required', 'isEmail']}
                     errorMessages={['Choose a Gmail address', 'email is not valid']}
-                /> */}
-                 {/* <FormControl className={clsx(classes.margin, classes.textField)} variant="filled">
-          <InputLabel htmlFor="filled-adornment-password">Password</InputLabel>
-          <FilledInput
-            id="filled-adornment-password"
-            type={values.showPassword ? 'text' : 'password'}
-            value={values.password}
-            onChange={handleChange('password')}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {values.showPassword ? <Visibility /> : <VisibilityOff />}
-                </IconButton>
-              </InputAdornment>
-            }
-          />
-        </FormControl> */}
+                />
+                    {/* <FormControl  >
+                    <FilledInput
+                    id="filled-adornment-password"
+                    type='email'
+                    value={userName}
+                    validators={['required', 'isEmail']}
+                    errorMessages={['Choose a Gmail address', 'email is not valid']}
+                    onChange={(event)=>setUserName(event.target.value)}
+                    />
+                    </FormControl> */}
                 </Grid>
             </Grid>
             <Grid container spacing={1}>
