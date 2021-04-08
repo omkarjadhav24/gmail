@@ -54,6 +54,9 @@ const useStyles = makeStyles((theme) => ({
       cpationForFigure:{
           fontSize:'16px',
           fontWeight:'300'
+      },
+      usernameSpanHide:{
+          display:'none'
       }
   }));
 
@@ -62,7 +65,8 @@ const Layout=()=> {
     let firstNameInput = useRef(null);
     // for username fieled focus
     let emailInput = useRef(null);
-
+     // for consume the styles
+     const classes = useStyles();
     // states
     const[firstName,setFirstName]=useState(null);
     const[lastName,setLastName]=useState(null);
@@ -73,9 +77,8 @@ const Layout=()=> {
     const[hidden,setHidden]=useState(true)
     const[passwordClass,setPasswordClass]=useState('Mui-error')
     const[emailClass,setEmailClass]=useState('Mui-error')
-    const[hideGrid,setHideGrid]=useState(false)
-    // for consume the styles
-    const classes = useStyles();
+    const[hideSpan,setHideSpan]=useState(false)
+    const[displayNoneSpan,setDisplayNoneSpan]=useState('')
     // for container border 
     const defaultProps = {
         bgcolor: 'background.paper',
@@ -101,8 +104,12 @@ const Layout=()=> {
     },[])
     // onclick submit
     const handleSubmit=(event)=>{
-        // for username below grid hiding
-        setHideGrid(true)
+    }
+    // hiding span tag below username and password onclicl next button
+    const hideSpanHandler=()=>{
+         // for hiding hint span below username and password
+         setHideSpan(true)
+         setDisplayNoneSpan(classes.usernameSpanHide)
     }
     let  usernameInput=null;
     // for handling button 
@@ -221,8 +228,8 @@ const Layout=()=> {
             />
                 } 
                 {emailClass ?
-                <span  className={classes.spanText} >
-                You'll need to confirm that this email belongs to you.
+                <span  className={hideSpan ? displayNoneSpan :classes.spanText} >
+               {hideSpan ?null:<>You'll need to confirm that this email belongs to you.</> }
                 </span> :null}
                     {/* <FormControl  >
                     <FilledInput
@@ -276,9 +283,14 @@ const Layout=()=> {
                     value={repeatPassword}
                 />
             </Grid>
-            <span className={classes.spanText}>
-                    Use 8 or more characters with a mix of letters, numbers & symbols
-            </span>
+            {hideSpan  ? 
+                    null
+                 :
+                 <span className={classes.spanText}>
+                Use 8 or more characters with a mix of letters, numbers & symbols
+                </span>
+            }
+           
             </Grid>
             {/* {passwordClass ?  
             <Grid container spacing={1}>
@@ -307,7 +319,7 @@ const Layout=()=> {
                 <Button  className={classes.userNameButton} color="primary">Sign in instead</Button>
             </Grid>
             <Grid item xs={12} sm={6}>
-            <Button variant="contained" color="primary" type="submit">Next</Button>
+            <Button  onClick={()=>hideSpanHandler()} variant="contained" color="primary" type="submit">Next</Button>
             </Grid>
             </Grid>
             </ValidatorForm>
