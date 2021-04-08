@@ -335,7 +335,7 @@ const Layout=()=> {
         <Grid item xs={12} sm={6}>
         
         <Box display="flex" justifyContent="center" m={1} p={1} >
-        <Box p={1} >
+        <Box  id="imgDiv" >
         <figure ><img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="244" height="244"/>
             <figcaption  style={{textAlign: 'center'}} className={classes.cpationForFigure}>One account. All of Google working for you.</figcaption>
         </figure>
