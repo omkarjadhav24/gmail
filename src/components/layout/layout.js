@@ -62,6 +62,9 @@ const useStyles = makeStyles((theme) => ({
       },
       h1Tag:{
         fontFamily:'"Noto Sans Myanmar UI",arial,sans-serif'
+    },
+    checkBoxLabel:{
+        fontSize:'0.9rem'
     }
   }));
 
@@ -310,14 +313,17 @@ const Layout=()=> {
             <Grid item xs={12} sm={6}>
                  <FormControlLabel
                 control={
+                    <>
                     <Checkbox
                     name="checkedB"
                     color="primary"
                     onClick={()=>handleClickShowPassword()}
                     />
+                    <span>Show password</span>
+                    </>
                 }
-                label="Show password"
                 />
+                
             </Grid>
             </Grid>
             <Grid container spacing={1}>
