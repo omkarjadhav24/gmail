@@ -276,17 +276,18 @@ const Layout=()=> {
                     value={repeatPassword}
                 />
             </Grid>
+            <span className={classes.spanText}>
+                    Use 8 or more characters with a mix of letters, numbers & symbols
+            </span>
             </Grid>
-            {passwordClass ?  
+            {/* {passwordClass ?  
             <Grid container spacing={1}>
             <Grid item xs={12} sm={12}>
-                <span className={classes.spanText}>
-                    Use 8 or more characters with a mix of letters, numbers & symbols
-                </span>
+               
             </Grid>
             </Grid>
             :null
-            }
+            } */}
             <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
                  <FormControlLabel
