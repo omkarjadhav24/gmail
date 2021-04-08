@@ -295,7 +295,7 @@ const Layout=()=> {
                     name="repeatPassword"
                     type={ hidden ? 'password' : 'text'}
                     validators={['isPasswordMatch']}
-                    errorMessages={['Password Mismatch']}
+                    errorMessages={['Confirm your password']}
                     value={repeatPassword}
                 />
             </Grid>
@@ -333,9 +333,9 @@ const Layout=()=> {
                 
             </Grid>
             </Grid>
-            <Grid container spacing={1}>
+            <Grid  style={{marginTop:"40px"}} container spacing={1}>
                 <div style={{ width: '100%' }}>
-                <Box display="flex" p={1} bgcolor="background.paper">
+                <Box display="flex" bgcolor="background.paper">
                 <Box p={1} flexGrow={1} >
                 <Button  className={classes.userNameButton} color="primary">Sign in instead</Button>
                 </Box>
