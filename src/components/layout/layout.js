@@ -67,6 +67,7 @@ const Layout=()=> {
         borderColor: '#e0e0e0',
         m: 3,
         border: 1,
+        borderRadius:'9px',
         style: { width: '748px', height: '617px' },
       };
       // for confirm password it matches password if not then show error
