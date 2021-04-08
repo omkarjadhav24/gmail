@@ -39,6 +39,16 @@ const useStyles = makeStyles((theme) => ({
       },
       boxPadding:{
           padding:'48px 40px 36px'
+      },
+      spanText:{
+        fontFamily:'"Google Sans",Roboto,Arial,sans-serif',
+        color: '#5f6368',
+        marginLeft:'16px'
+      },
+      spanTextForUsername:{
+        fontFamily:'"Google Sans",Roboto,Arial,sans-serif',
+        color: '#202124',
+        fontSize:'14px'
       }
   }));
 
@@ -187,7 +197,7 @@ const Layout=()=> {
                     name="email"
                     InputProps={{
                         endAdornment:
-                        <span  position="end">@gmail.com</span>
+                        <span className={classes.spanTextForUsername} position="end">@gmail.com</span>
                         }}
                     validators={['required', 'isEmail','matchRegexp:^[a-zA-z0-9@.]{6,}$']}
                     errorMessages={['Choose a Gmail address', 'email is not valid','Sorry, your username must be between 6 and 30 characters long.']}
@@ -206,7 +216,7 @@ const Layout=()=> {
             />
                 } 
                 {emailClass ?
-                <span>
+                <span  className={classes.spanText} >
                 You'll need to confirm that this email belongs to you.
                 </span> :null}
                     {/* <FormControl  >
@@ -265,7 +275,7 @@ const Layout=()=> {
             {passwordClass ?  
             <Grid container spacing={1}>
             <Grid item xs={12} sm={12}>
-                <span>
+                <span className={classes.spanText}>
                     Use 8 or more characters with a mix of letters, numbers & symbols
                 </span>
             </Grid>
