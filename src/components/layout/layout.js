@@ -56,12 +56,12 @@ const useStyles = makeStyles((theme) => ({
           fontWeight:'300',
           width:'200px',
           marginLeft:'65px'
-      },
+              },
       usernameSpanHide:{
           display:'none'
       },
       h1Tag:{
-        fontFamily:'"Google Sans","Noto Sans Myanmar UI",arial,sans-serif'
+        fontFamily:'"Noto Sans Myanmar UI",arial,sans-serif'
     }
   }));
 
