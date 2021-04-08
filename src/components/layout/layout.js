@@ -121,8 +121,10 @@ const Layout=()=> {
          setHideSpan(true)
          setDisplayNoneSpan(classes.usernameSpanHide)
     }
+    // repeat password two data binding
     const repeatPasswordHandler=(event)=>{
         setRepeatPassword(event.target.value)
+        // if password not match then hide the span
         setRepeatPasswordClass(event.target.classList.contains(repeatPasswordClass))
     }
     let  usernameInput=null;
