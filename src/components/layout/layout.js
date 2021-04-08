@@ -94,7 +94,7 @@ const Layout=()=> {
         m: 3,
         border: 1,
         borderRadius:'9px',
-        style: { width: '748px', height: '617px' },
+        style: { width: '748px', height: '617px' ,marginLeft:'80.500px',marginRight:'80.500px' },
       };
       // for confirm password it matches password if not then show error
       //add your own rules  addValidationRule()
