@@ -143,6 +143,12 @@ const Layout=()=> {
         // if password error occurs then hide the grid
         setPasswordClass(event.target.classList.contains(passwordClass))
     }
+    // for repeat password two data binding
+    const repeatPasswordHandler=(event)=>{
+        setRepeatPassword(event.target.value)
+        // if password not match then hide the password hint text
+        setPasswordClass(event.target.classList.contains(passwordClass))
+    }
     const handlerEmail=(event)=>{
         // two data binding
         setUserName(event.target.value)
@@ -291,7 +297,7 @@ const Layout=()=> {
                     fullWidth
                     variant="outlined"
                     size="small"
-                    onChange={(event)=>setRepeatPassword(event.target.value)}
+                    onChange={(event)=>repeatPasswordHandler(event)}
                     name="repeatPassword"
                     type={ hidden ? 'password' : 'text'}
                     validators={['isPasswordMatch']}
