@@ -27,7 +27,19 @@ span{
 .MuiButton-label{
     font-size: 14px;
     font-weight: 600;
+    text-transform: none;
 }
 /* .makeStyles-boxPadding-6 {
     padding: 20px 40px 36px;
 } */
+.MuiButton-contained{
+    height: 40px;
+    width: 45px;
+    text-transform: none;
+    background-color: #1a73e8;
+}
+#MuiButtoncontained {
+    background-color: #1a73e8;
+    color: #fff;
+}
+

@@ -325,7 +325,7 @@ const Layout=()=> {
                 <Button  className={classes.userNameButton} color="primary">Sign in instead</Button>
                 </Box>
                 <Box p={1} >
-                <Button  onClick={()=>hideSpanHandler()} variant="contained" color="primary" type="submit">Next</Button>
+                <Button  onClick={()=>hideSpanHandler()} variant="contained"  id="MuiButtoncontained" type="submit">Next</Button>
                 </Box>
                 </Box>
                 </div>
