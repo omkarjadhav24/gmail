@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
          color:'#1a73e8'
       },
       boxPadding:{
-          padding:'48px 40px 36px'
+         padding:'0px 40px 36px'
       },
       spanText:{
         fontFamily:'"Google Sans",Roboto,Arial,sans-serif',
@@ -57,7 +57,10 @@ const useStyles = makeStyles((theme) => ({
       },
       usernameSpanHide:{
           display:'none'
-      }
+      },
+      h1Tag:{
+        fontFamily:'"Google Sans","Noto Sans Myanmar UI",arial,sans-serif'
+    }
   }));
 
 const Layout=()=> {
@@ -160,7 +163,8 @@ const Layout=()=> {
             </Grid>
             <Grid container spacing={1}>
                 <Grid item xs={12} sm={12}>
-                    <Typography variant="h5" gutterBottom >
+                    {/* <h1 className={classes.h1Tag}><span>Create your Google Account</span></h1> */}
+                    <Typography  className={classes.h1Tag} variant="h5" >
                     Create your Google Account
                     </Typography>
                 </Grid>
