@@ -174,7 +174,7 @@ const Layout=()=> {
             <Grid container spacing={1}>
                 <Grid item xs={12} sm={6}>
                 <TextValidator
-                    label="First Name"
+                    label="First name"
                     variant="outlined"
                     size="small"
                     inputRef={firstNameInput}
@@ -189,7 +189,7 @@ const Layout=()=> {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                 <TextValidator
-                    label="Last Name"
+                    label="Last name"
                     fullWidth
                     variant="outlined"
                     size="small"
