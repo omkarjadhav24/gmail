@@ -14,7 +14,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-
+import Link from '@material-ui/core/Link';
 // styles. makestyles used as a wrapper, to assign the classes prop to our component.
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -350,14 +350,34 @@ const Layout=()=> {
         </Box>
         <Grid container spacing={1}>
             <Grid item xs={12} sm={6}>
-                <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
+                <Box display="flex" justifyContent="start" m={1} p={1} >
+                <Box>
+                    <Select
+                    labelId="demo-simple-select-label"
+                    id="demo-simple-select"
+                    >
+                    <MenuItem value={10}>Ten</MenuItem>
+                    <MenuItem value={20}>Twenty</MenuItem>
+                    <MenuItem value={30}>Thirty</MenuItem>
+                    </Select>
+                </Box>
+                </Box>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                <Box display="flex" justifyContent="end" m={1} p={1} >
+                <Box>
+                    <Typography className={classes.root}>
+                    <Link href="#">
+                    Help
+                    </Link>
+                    <Link href="#">
+                    Privacy
+                    </Link><Link href="#">
+                    Terms
+                    </Link>
+                    </Typography>
+                </Box>
+                </Box>
             </Grid>
         </Grid>
         </Container>
