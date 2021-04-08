@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
       },
       media: {
-        height: '30px',
+        height: '25px',
         paddingTop: '29px', 
       },
       textWidth:{
