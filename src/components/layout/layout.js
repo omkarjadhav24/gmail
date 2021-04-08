@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
          fontFamily:'"Google Sans",Roboto,Arial,sans-serif',
          letterSpacing:'.0107142857em',
          textTransform:'none' ,
-         color:'#1a73e8',
+         color:'#1a73e8'
       },
       boxPadding:{
           padding:'48px 40px 36px'
@@ -315,12 +315,16 @@ const Layout=()=> {
             </Grid>
             </Grid>
             <Grid container spacing={1}>
-            <Grid item xs={12} sm={6}>
+                <div style={{ width: '100%' }}>
+                <Box display="flex" p={1} bgcolor="background.paper">
+                <Box p={1} flexGrow={1} >
                 <Button  className={classes.userNameButton} color="primary">Sign in instead</Button>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-            <Button  onClick={()=>hideSpanHandler()} variant="contained" color="primary" type="submit">Next</Button>
-            </Grid>
+                </Box>
+                <Box p={1} >
+                <Button  onClick={()=>hideSpanHandler()} variant="contained" color="primary" type="submit">Next</Button>
+                </Box>
+                </Box>
+                </div>
             </Grid>
             </ValidatorForm>
         </Grid>

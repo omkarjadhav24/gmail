@@ -24,4 +24,7 @@ span{
     margin-left: 55.500px;
     margin-right: 60.500px;
 }
-
+.MuiButton-label{
+    font-size: 14px;
+    font-weight: 600;
+}
