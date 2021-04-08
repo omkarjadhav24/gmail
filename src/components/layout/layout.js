@@ -87,6 +87,7 @@ const Layout=()=> {
     const[emailClass,setEmailClass]=useState('Mui-error')
     const[hideSpan,setHideSpan]=useState(false)
     const[displayNoneSpan,setDisplayNoneSpan]=useState('')
+    const[repeatPasswordClass,setRepeatPasswordClass]=useState('Mui-error')
     // for container border 
     const defaultProps = {
         bgcolor: 'background.paper',
@@ -120,6 +121,10 @@ const Layout=()=> {
          setHideSpan(true)
          setDisplayNoneSpan(classes.usernameSpanHide)
     }
+    const repeatPasswordHandler=(event)=>{
+        setRepeatPassword(event.target.value)
+        setRepeatPasswordClass(event.target.classList.contains(repeatPasswordClass))
+    }
     let  usernameInput=null;
     // for handling button 
     // if user Create a new Gmail address instead
@@ -141,12 +146,6 @@ const Layout=()=> {
     const passwordHandler=(event)=>{
         setPassword(event.target.value)
         // if password error occurs then hide the grid
-        setPasswordClass(event.target.classList.contains(passwordClass))
-    }
-    // for repeat password two data binding
-    const repeatPasswordHandler=(event)=>{
-        setRepeatPassword(event.target.value)
-        // if password not match then hide the password hint text
         setPasswordClass(event.target.classList.contains(passwordClass))
     }
     const handlerEmail=(event)=>{
@@ -181,8 +180,8 @@ const Layout=()=> {
                     </Typography>
                 </Grid>
             </Grid>
-            <Grid container spacing={1}>
-                <Grid item xs={12} sm={6}>
+            <Grid container  spacing={1}>
+                <Grid item xs={12}  sm={6}>
                 <TextValidator
                     label="First name"
                     variant="outlined"
@@ -307,10 +306,12 @@ const Layout=()=> {
             </Grid>
             {hideSpan  ? 
                     null
-                 :
-                 <span className={classes.spanText}>
-                Use 8 or more characters with a mix of letters, numbers & symbols
-                </span>
+                 :<>
+                 {repeatPasswordClass ? <span className={classes.spanText}>
+                    Use 8 or more characters with a mix of letters, numbers & symbols
+                    </span> :null
+                }
+                 </>
             }
            
             </Grid>
