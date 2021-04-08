@@ -208,7 +208,8 @@ const Layout=()=> {
             <Grid container spacing={1}>
                 <Grid item xs={12} sm={12}>
                     {showCurrentEmail ?
-                <TextValidator
+                <>
+                 <TextValidator
                     label="Username"
                     variant="outlined"
                     size="small"
@@ -223,7 +224,14 @@ const Layout=()=> {
                         }}
                     validators={['required', 'isEmail','matchRegexp:^[a-zA-z0-9@.]{6,}$']}
                     errorMessages={['Choose a Gmail address', 'email is not valid','Sorry, your username must be between 6 and 30 characters long.']}
-                /> : 
+                />
+                  {emailClass ?
+                <span  className={hideSpan ? displayNoneSpan :classes.spanText} >
+               {hideSpan ?null:<>You can use letters, numbers & periods</> }
+                </span> :null}
+                </>
+                : 
+                <>
                 <TextValidator
                     label="Your Email Address"
                     variant="outlined"
@@ -235,12 +243,10 @@ const Layout=()=> {
                     name="email"
                     validators={['required', 'isEmail','matchRegexp:^[a-zA-z0-9@.]{6,}$']}
                     errorMessages={['Choose a Gmail address', 'email is not valid','Sorry, your username must be between 6 and 30 characters long.']}
-            />
+            /><span className={classes.spanText}>You'll need to confirm that this email belongs to you.</span>
+                </>
                 } 
-                {emailClass ?
-                <span  className={hideSpan ? displayNoneSpan :classes.spanText} >
-               {hideSpan ?null:<>You'll need to confirm that this email belongs to you.</> }
-                </span> :null}
+              
                     {/* <FormControl  >
                     <FilledInput
                     id="filled-adornment-password"
@@ -355,9 +361,9 @@ const Layout=()=> {
     </div>           
         </Box>
         </Box>
-        <Grid container spacing={1}>
+        <Grid  style={{marginLeft:"80.500px",marginRight:"80.500px"}} container spacing={1}>
             <Grid item xs={12} sm={6}>
-                <Box display="flex" justifyContent="start" m={1} p={1} >
+                <Box display="flex" justifyContent="start"   >
                 <Box>
                     <Select
                     labelId="demo-simple-select-label"
@@ -371,18 +377,13 @@ const Layout=()=> {
                 </Box>
             </Grid>
             <Grid item xs={12} sm={6}>
-                <Box display="flex" justifyContent="end" m={1} p={1} >
+                <Box display="flex" justifyContent="end"  >
                 <Box>
-                    <Typography className={classes.root}>
-                    <Link href="#">
-                    Help
-                    </Link>
-                    <Link href="#">
-                    Privacy
-                    </Link><Link href="#">
-                    Terms
-                    </Link>
-                    </Typography>
+                   <ul style={{listStyle:"none",display:'inline-flex',textDecoration:'none'}} >
+                       <li style={{marginLeft:'20px'}}> <a href="#">Help</a> </li>
+                       <li style={{marginLeft:'40px'}}> <a href="#">Privacy</a> </li>
+                       <li style={{marginLeft:'40px'}}> <a href="#">Terms</a> </li>
+                   </ul>
                 </Box>
                 </Box>
             </Grid>

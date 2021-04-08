@@ -46,4 +46,10 @@ span{
     position: absolute;
     margin-top: 69px;
 }
-
+a{
+    text-decoration:none;
+    color:#5f6368;
+}
+a:hover{
+    text-decoration-line: none;
+}
