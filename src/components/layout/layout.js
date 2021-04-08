@@ -35,7 +35,8 @@ const useStyles = makeStyles((theme) => ({
       userNameButton:{
          fontFamily:'"Google Sans",Roboto,Arial,sans-serif',
          letterSpacing:'.0107142857em',
-         textTransform:'none' 
+         textTransform:'none' ,
+         color:'#1a73e8',
       },
       boxPadding:{
           padding:'48px 40px 36px'
@@ -49,6 +50,10 @@ const useStyles = makeStyles((theme) => ({
         fontFamily:'"Google Sans",Roboto,Arial,sans-serif',
         color: '#202124',
         fontSize:'14px'
+      },
+      cpationForFigure:{
+          fontSize:'16px',
+          fontWeight:'300'
       }
   }));
 
@@ -311,7 +316,7 @@ const Layout=()=> {
         <Box display="flex" justifyContent="center" m={1} p={1} >
         <Box p={1} >
         <figure ><img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="244" height="244"/>
-            <figcaption className="figCaption">One account. All of Google working for you.</figcaption>
+            <figcaption  style={{textAlign: 'center'}} className={classes.cpationForFigure}>One account. All of Google working for you.</figcaption>
         </figure>
         </Box>
       </Box>
