@@ -277,7 +277,7 @@ const Layout=()=> {
             </Grid>
             <Grid item xs={12} sm={6}>
             <TextValidator
-                    label="confirm"
+                    label="Confirm"
                     fullWidth
                     variant="outlined"
                     size="small"
