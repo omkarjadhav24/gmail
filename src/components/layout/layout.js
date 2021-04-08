@@ -53,7 +53,9 @@ const useStyles = makeStyles((theme) => ({
       },
       cpationForFigure:{
           fontSize:'16px',
-          fontWeight:'300'
+          fontWeight:'300',
+          width:'200px',
+          marginLeft:'65px'
       },
       usernameSpanHide:{
           display:'none'
@@ -337,8 +339,8 @@ const Layout=()=> {
         <Box display="flex" justifyContent="center" m={1} p={1} >
         <Box  id="imgDiv" >
         <figure ><img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="244" height="244"/>
-            <figcaption  style={{textAlign: 'center'}} className={classes.cpationForFigure}>One account. All of Google working for you.</figcaption>
         </figure>
+        <figcaption  style={{textAlign: 'center'}} className={classes.cpationForFigure}>One account. All of Google working for you.</figcaption>
         </Box>
       </Box>
         </Grid>
