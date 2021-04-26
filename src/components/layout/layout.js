@@ -233,7 +233,7 @@ const Layout=()=> {
                     errorMessages={['Choose a Gmail address', 'email is not valid','Sorry, your username must be between 6 and 30 characters long.']}
                 />
                   {emailClass ?
-                <span  className={hideSpan ? displayNoneSpan :classes.spanText} >
+                <span  className={classes.spanText} >
                {hideSpan ?null:<>You can use letters, numbers & periods</> }
                 </span> :null}
                 </>
